@@ -10,6 +10,7 @@ import {
 	ChevronRight,
 	Radio,
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import AWSIRModule from './components/AWSIRModule';
 import SIEMSuiteModule from './components/SIEMSuiteModule';
 import ApexIntelModule from './components/ApexIntelModule';
@@ -218,6 +219,7 @@ export default function App() {
 					</div>
 				</div>
 			</footer>
+			<Analytics />
 		</div>
 	);
 }

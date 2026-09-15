@@ -28,73 +28,129 @@ export default function ContactModule() {
     }));
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setStatus("submitting");
-  setErrorMessage("");
-
-  try {
-    // 1. Detect and format sender's exact local time zone and current time
-    const now = new Date();
-    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone; // e.g., "America/Los_Angeles"
-    
-    const formattedTimestamp = new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: true,
-      timeZoneName: "short", // e.g., "PST" or "PDT"
-    }).format(now);
-
-    // Combine readable time with the explicit IANA time zone string
-    const localTimestampWithZone = `${formattedTimestamp} (${userTimeZone})`;
-
-    // 2. Write record to Firestore
-    const docRef = await addDoc(collection(db, "contact_telemetry"), {
-      name: formData.name,
-      email: formData.email,
-      organization: formData.organization || "N/A",
-      subject: formData.subject,
-      message: formData.message,
-      timestamp: serverTimestamp(),
-      clientTimestamp: localTimestampWithZone, // Storing client local time for audits
-      userAgent: navigator.userAgent,
-    });
-
-    // 3. Prepare payload for EmailJS templates
-    const templateParams = {
-      record_id: docRef.id,
-      from_name: formData.name,
-      from_email: formData.email,
-      organization: formData.organization || "N/A",
-      subject: formData.subject,
-      message: formData.message,
-      timestamp: localTimestampWithZone, // e.g., "Aug 09, 2026, 11:24:04 AM PDT (America/Los_Angeles)"
-    };
-
-    // 4. Parallel dispatch of EmailJS templates
-    await Promise.all([
-      emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY),
-      emailjs.send(SERVICE_ID, AUTOREPLY_TEMPLATE_ID, templateParams, PUBLIC_KEY),
+  // Helper function to force promises to time out if network/rules hang
+  const withTimeout = <T,>(promise: Promise<T>, timeoutMs: number, errorMessage: string): Promise<T> => {
+    return Promise.race([
+      promise,
+      new Promise<T>((_, reject) =>
+        setTimeout(() => reject(new Error(errorMessage)), timeoutMs)
+      ),
     ]);
+  };
 
-    setStatus("success");
-    setFormData({
-      name: "",
-      email: "",
-      organization: "",
-      subject: "",
-      message: "",
-    });
-  } catch (err: any) {
-    console.error("Telemetry ingest failure:", err);
-    setStatus("error");
-    setErrorMessage("Failed to store or transmit telemetry packet. Please try again.");
-  }
-};
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    console.log("🚀 [Telemetry] Dispatch sequence started...");
+
+    // 1. Sanity check Vite environment variables
+    if (!SERVICE_ID || !ADMIN_TEMPLATE_ID || !PUBLIC_KEY) {
+      console.error("❌ [Telemetry] Missing EmailJS env config:", {
+        SERVICE_ID,
+        ADMIN_TEMPLATE_ID,
+        PUBLIC_KEY: PUBLIC_KEY ? "CONFIGURED" : "MISSING",
+      });
+      setStatus("error");
+      setErrorMessage("Configuration error: Missing dispatch credentials in environment variables.");
+      return;
+    }
+
+    try {
+      // 2. Format client timestamp
+      const now = new Date();
+      const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const formattedTimestamp = new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+        timeZoneName: "short",
+      }).format(now);
+
+      const localTimestampWithZone = `${formattedTimestamp} (${userTimeZone})`;
+
+      // 3. Attempt Firestore Persistence (Wrapped with 8s Timeout)
+      let docId = "local-bypass-" + Date.now();
+      try {
+        console.log("💾 [Firestore] Writing record to contact_telemetry...");
+        
+        const firestorePromise = addDoc(collection(db, "contact_telemetry"), {
+          name: formData.name,
+          email: formData.email,
+          organization: formData.organization || "N/A",
+          subject: formData.subject,
+          message: formData.message,
+          timestamp: serverTimestamp(),
+          clientTimestamp: localTimestampWithZone,
+          userAgent: navigator.userAgent,
+        });
+
+        const docRef = await withTimeout(
+          firestorePromise,
+          8000,
+          "Firestore write timed out. Check Database Security Rules."
+        );
+        
+        docId = docRef.id;
+        console.log("✅ [Firestore] Record saved successfully! Doc ID:", docId);
+      } catch (dbErr: any) {
+        console.warn("⚠️ [Firestore] Database persistence warning:", dbErr.message);
+        // Continue to EmailJS even if Firestore fails or times out
+      }
+
+      // 4. Construct EmailJS Payload
+      const templateParams = {
+        record_id: docId,
+        from_name: formData.name,
+        from_email: formData.email,
+        organization: formData.organization || "N/A",
+        subject: formData.subject,
+        message: formData.message,
+        timestamp: localTimestampWithZone,
+      };
+
+      // 5. Dispatch EmailJS Notifications
+      console.log("📧 [EmailJS] Initializing transmission...");
+      
+      const adminDispatch = withTimeout(
+        emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY),
+        10000,
+        "Admin email notification timed out."
+      );
+
+      const autoReplyDispatch = AUTOREPLY_TEMPLATE_ID
+        ? withTimeout(
+            emailjs.send(SERVICE_ID, AUTOREPLY_TEMPLATE_ID, templateParams, PUBLIC_KEY),
+            10000,
+            "Auto-reply email notification timed out."
+          )
+        : Promise.resolve(null);
+
+      await Promise.all([adminDispatch, autoReplyDispatch]);
+      console.log("✅ [EmailJS] All notifications transmitted successfully!");
+
+      // 6. Complete Dispatch & Reset Form
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        organization: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err: any) {
+      console.error("❌ [Telemetry] Dispatch failure:", err);
+      setStatus("error");
+      setErrorMessage(
+        err?.text || err?.message || "Failed to transmit telemetry packet to endpoint."
+      );
+    }
+  };
 
   return (
     <div className="space-y-6">

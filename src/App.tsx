@@ -228,6 +228,8 @@ function OverviewModule({
             </p>
           </div>
 
+          
+
           {/* Direct CTAs & Profiles */}
           <div className="flex items-center gap-2 flex-wrap font-mono text-xs">
             <a
@@ -271,6 +273,117 @@ function OverviewModule({
           threat intelligence feeds, and security architecture mappings.
         </p>
       </div>
+
+      {/* Certifications & Academic Credentials Grid */}
+<div className="mt-8 space-y-4">
+  <div className="flex items-center gap-2">
+    <h2 className="text-lg font-mono font-bold text-white tracking-wide uppercase">
+      Certifications & Academic Credentials
+    </h2>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {/* Security+ */}
+    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
+      <div>
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+            CompTIA
+          </span>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
+            Active
+          </span>
+        </div>
+        <h3 className="text-sm font-semibold text-white mb-1">
+          CompTIA Security+
+        </h3>
+      </div>
+      <p className="text-xs font-mono text-slate-400 mt-2">
+        Core Security Operations & Threat Management
+      </p>
+    </div>
+
+    {/* SkillFront ISO 27001 */}
+    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
+      <div>
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+            SkillFront
+          </span>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
+            Active
+          </span>
+        </div>
+        <h3 className="text-sm font-semibold text-white mb-1">
+          ISO/IEC 27001:2022 Security Associate
+        </h3>
+      </div>
+      <p className="text-xs font-mono text-slate-400 mt-2">
+        ISMS Frameworks, Auditing & Risk Management
+      </p>
+    </div>
+
+    {/* Fortinet NSE 3 */}
+    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
+      <div>
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+            Fortinet
+          </span>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
+            Active
+          </span>
+        </div>
+        <h3 className="text-sm font-semibold text-white mb-1">
+          Fortinet NSE Level 3
+        </h3>
+      </div>
+      <p className="text-xs font-mono text-slate-400 mt-2">
+        Network Security & Threat Landscape Coverage
+      </p>
+    </div>
+
+    {/* CISSP */}
+    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
+      <div>
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+            (ISC)²
+          </span>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-amber-400 border-amber-500/30 bg-amber-500/10 font-semibold">
+            In Progress
+          </span>
+        </div>
+        <h3 className="text-sm font-semibold text-white mb-1">
+          CISSP
+        </h3>
+      </div>
+      <p className="text-xs font-mono text-slate-400 mt-2">
+        Target Completion: Q1 2027
+      </p>
+    </div>
+
+    {/* Purdue Global Degree */}
+    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between md:col-span-2 lg:col-span-2">
+      <div>
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+            Purdue University Global
+          </span>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-soc-cyan border-soc-cyan/30 bg-soc-cyan/10 font-semibold">
+            3.96 GPA
+          </span>
+        </div>
+        <h3 className="text-sm font-semibold text-white mb-1">
+          B.S. in Cybersecurity
+        </h3>
+      </div>
+      <p className="text-xs font-mono text-slate-400 mt-2">
+        Focus: Network Security, Intrusion Detection, Footprinting & Security Operations &bull; Expected Jan 2027
+      </p>
+    </div>
+  </div>
+</div>
 
       {/* Interactive Project Modules Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

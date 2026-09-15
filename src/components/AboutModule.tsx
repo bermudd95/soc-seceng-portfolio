@@ -1,8 +1,6 @@
 import React from "react";
 import {
   Shield,
-  Terminal,
-  Cpu,
   Award,
   Layers,
   MapPin,
@@ -38,14 +36,14 @@ export default function AboutModule() {
               CompTIA Security+ ce
             </span>
             <span className="px-3 py-1.5 bg-black/50 border border-soc-border rounded-lg text-slate-300">
-              B.S. Cybersecurity (3.96 GPA)
+              B.S. Cybersecurity (3.98 GPA)
             </span>
           </div>
         </div>
 
         <p className="text-slate-300 leading-relaxed text-sm sm:text-base max-w-4xl">
-          Cybersecurity engineer with 7+ years bridging SOC operations, detection engineering, 
-          and full-stack development. Triaging 50–80+ daily security events across 150+ facilities with 
+          Cybersecurity engineer bridging SOC operations, detection engineering, 
+          and software development. Triaging 50–80+ daily security events across 150+ facilities with 
           sub-5-minute MTTD. My software background in Python, React, and Node.js allows me to build 
           the custom detection-as-code tooling analysts need, rather than just triaging alerts.
         </p>

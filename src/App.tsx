@@ -17,7 +17,7 @@ import {
   Mail,
   MapPin,
   Briefcase,
-  CheckCircle2,
+  TrendingUp,
 } from "lucide-react";
 
 import AWSIRModule from "./components/AWSIRModule";
@@ -49,7 +49,6 @@ export default function App() {
     setIsMobileMenuOpen(false);
   };
 
-  // Centralized module map ensures reliable rendering
   const renderActiveModule = () => {
     switch (activeTab) {
       case "overview":
@@ -228,8 +227,6 @@ function OverviewModule({
             </p>
           </div>
 
-          
-
           {/* Direct CTAs & Profiles */}
           <div className="flex items-center gap-2 flex-wrap font-mono text-xs">
             <a
@@ -275,123 +272,124 @@ function OverviewModule({
       </div>
 
       {/* Certifications & Academic Credentials Grid */}
-<div className="mt-8 space-y-4">
-  <div className="flex items-center gap-2">
-    <h2 className="text-lg font-mono font-bold text-white tracking-wide uppercase">
-      Certifications & Academic Credentials
-    </h2>
-  </div>
-
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {/* Security+ */}
-    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
-      <div>
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-            CompTIA
-          </span>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
-            Active
-          </span>
+      <div className="mt-8 space-y-4">
+        <div className="flex items-center gap-2">
+          <h2 className="text-lg font-mono font-bold text-white tracking-wide uppercase">
+            Certifications & Academic Credentials
+          </h2>
         </div>
-        <h3 className="text-sm font-semibold text-white mb-1">
-          CompTIA Security+
-        </h3>
-      </div>
-      <p className="text-xs font-mono text-slate-400 mt-2">
-        Core Security Operations & Threat Management
-      </p>
-    </div>
 
-    {/* SkillFront ISO 27001 */}
-    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
-      <div>
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-            SkillFront
-          </span>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
-            Active
-          </span>
-        </div>
-        <h3 className="text-sm font-semibold text-white mb-1">
-          ISO/IEC 27001:2022 Security Associate
-        </h3>
-      </div>
-      <p className="text-xs font-mono text-slate-400 mt-2">
-        ISMS Frameworks, Auditing & Risk Management
-      </p>
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Security+ */}
+          <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                  CompTIA
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
+                  Active
+                </span>
+              </div>
+              <h3 className="text-sm font-semibold text-white mb-1">
+                CompTIA Security+
+              </h3>
+            </div>
+            <p className="text-xs font-mono text-slate-400 mt-2">
+              Core Security Operations & Threat Management
+            </p>
+          </div>
 
-    {/* Fortinet NSE 3 */}
-    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
-      <div>
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-            Fortinet
-          </span>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
-            Active
-          </span>
-        </div>
-        <h3 className="text-sm font-semibold text-white mb-1">
-          Fortinet NSE Level 3
-        </h3>
-      </div>
-      <p className="text-xs font-mono text-slate-400 mt-2">
-        Network Security & Threat Landscape Coverage
-      </p>
-    </div>
+          {/* SkillFront ISO 27001 */}
+          <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                  SkillFront
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
+                  Active
+                </span>
+              </div>
+              <h3 className="text-sm font-semibold text-white mb-1">
+                ISO/IEC 27001:2022 Security Associate
+              </h3>
+            </div>
+            <p className="text-xs font-mono text-slate-400 mt-2">
+              ISMS Frameworks, Auditing & Risk Management
+            </p>
+          </div>
 
-    {/* CISSP */}
-    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
-      <div>
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-            (ISC)²
-          </span>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-amber-400 border-amber-500/30 bg-amber-500/10 font-semibold">
-            In Progress
-          </span>
-        </div>
-        <h3 className="text-sm font-semibold text-white mb-1">
-          CISSP
-        </h3>
-      </div>
-      <p className="text-xs font-mono text-slate-400 mt-2">
-        Target Completion: Q1 2027
-      </p>
-    </div>
+          {/* Fortinet NSE 3 */}
+          <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                  Fortinet
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-emerald-400 border-emerald-500/30 bg-emerald-500/10 font-semibold">
+                  Active
+                </span>
+              </div>
+              <h3 className="text-sm font-semibold text-white mb-1">
+                Fortinet NSE Level 3
+              </h3>
+            </div>
+            <p className="text-xs font-mono text-slate-400 mt-2">
+              Network Security & Threat Landscape Coverage
+            </p>
+          </div>
 
-    {/* Purdue Global Degree */}
-    <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between md:col-span-2 lg:col-span-2">
-      <div>
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-            Purdue University Global
-          </span>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-soc-cyan border-soc-cyan/30 bg-soc-cyan/10 font-semibold">
-            3.96 GPA
-          </span>
+          {/* CISSP */}
+          <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                  (ISC)²
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-amber-400 border-amber-500/30 bg-amber-500/10 font-semibold">
+                  In Progress
+                </span>
+              </div>
+              <h3 className="text-sm font-semibold text-white mb-1">
+                CISSP
+              </h3>
+            </div>
+            <p className="text-xs font-mono text-slate-400 mt-2">
+              Target Completion: Q1 2027
+            </p>
+          </div>
+
+          {/* Purdue Global Degree */}
+          <div className="p-4 rounded-xl bg-soc-card border border-soc-border hover:border-soc-cyan/40 transition-all flex flex-col justify-between md:col-span-2 lg:col-span-2">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                  Purdue University Global
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-soc-cyan border-soc-cyan/30 bg-soc-cyan/10 font-semibold">
+                  3.96 GPA
+                </span>
+              </div>
+              <h3 className="text-sm font-semibold text-white mb-1">
+                B.S. in Cybersecurity
+              </h3>
+            </div>
+            <p className="text-xs font-mono text-slate-400 mt-2">
+              Focus: Network Security, Intrusion Detection, Footprinting & Security Operations • Expected Jan 2027
+            </p>
+          </div>
         </div>
-        <h3 className="text-sm font-semibold text-white mb-1">
-          B.S. in Cybersecurity
-        </h3>
       </div>
-      <p className="text-xs font-mono text-slate-400 mt-2">
-        Focus: Network Security, Intrusion Detection, Footprinting & Security Operations &bull; Expected Jan 2027
-      </p>
-    </div>
-  </div>
-</div>
 
       {/* Interactive Project Modules Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         {[
           {
             id: "about",
             title: "Operator Profile & Background",
             desc: "Learn about my transition from physical asset protection to SOC operations, threat hunting, and detection-as-code engineering.",
+            impactMetric: "Transitioned real-world asset security to digital SecOps & threat hunting.",
             badge: "About",
             color: "border-soc-cyan/40 hover:border-soc-cyan",
           },
@@ -399,6 +397,7 @@ function OverviewModule({
             id: "resume",
             title: "Curriculum Vitae",
             desc: "View and download my verified resume detailing SOC metrics, certifications, and technical proficiencies.",
+            impactMetric: "66% faster triage, 35% FP reduction, 70% CTI time reduction.",
             badge: "Resume",
             color: "border-soc-emerald/40 hover:border-soc-emerald",
           },
@@ -406,6 +405,7 @@ function OverviewModule({
             id: "mobile-triage",
             title: "Mobile Threat Triage Engine",
             desc: "Zero-dependency iOS network hunting engine running inside iSH (Alpine Linux). Parses .HAR captures to isolate plaintext transport and high-risk indicators.",
+            impactMetric: "480+ flows, 300+ domains; identified 12 suspicious TLDs and 3 C2 patterns.",
             badge: "Mobile IR & Traffic Analysis",
             color: "border-soc-cyan/40 hover:border-soc-cyan",
           },
@@ -413,6 +413,7 @@ function OverviewModule({
             id: "aws-ir",
             title: "AWS GuardDuty & CloudTrail Incident Response",
             desc: "Pivoted from GuardDuty alerts to raw CloudTrail JSON logs to reconstruct attacker persistence, privilege escalation, and CLI containment.",
+            impactMetric: "Reduced credential revocation time from 20 minutes to under 30 seconds.",
             badge: "Cloud IR",
             color: "border-soc-cyan/40 hover:border-soc-cyan",
           },
@@ -420,6 +421,7 @@ function OverviewModule({
             id: "siem-suite",
             title: "SOC Threat Detection & SIEM Analytics Suite",
             desc: "Multi-stage attack detection in Elastic Security using Sysmon, EVTX, and Linux logs mapped to MITRE ATT&CK.",
+            impactMetric: "30+ detection rules engineered; 95% coverage across 12 MITRE ATT&CK tactics.",
             badge: "SIEM & Detection",
             color: "border-soc-emerald/40 hover:border-soc-emerald",
           },
@@ -427,6 +429,7 @@ function OverviewModule({
             id: "apex-intel",
             title: "ApexIntel CTI Threat Engine",
             desc: "Real-time threat aggregator ingesting CISA KEV, EPSS exploit scoring, and VirusTotal IOC reputation feeds.",
+            impactMetric: "Normalized 10,000+ daily IoCs; ~70% analyst enrichment time reduction.",
             badge: "Threat Intel",
             color: "border-soc-amber/40 hover:border-soc-amber",
           },
@@ -434,6 +437,7 @@ function OverviewModule({
             id: "sentinel-grc",
             title: "SentinelGRC Security Platform",
             desc: "Multi-tenant GRC platform automating NIST CSF 2.0 and SP 800-53 control mappings with Firestore security rules.",
+            impactMetric: "150+ NIST SP 800-53 control mappings; ~60% compliance overhead reduction.",
             badge: "GRC & AppSec",
             color: "border-purple-500/40 hover:border-purple-500",
           },
@@ -441,6 +445,7 @@ function OverviewModule({
             id: "contact",
             title: "Secure Communication Channel",
             desc: "Direct contact form with end-to-end telemetry logging to Firestore and serverless email alerting.",
+            impactMetric: "Serverless, encrypted, Firestore-backed pipeline with async fallbacks.",
             badge: "Contact",
             color: "border-soc-cyan/40 hover:border-soc-cyan",
           },
@@ -448,16 +453,31 @@ function OverviewModule({
           <div
             key={item.id}
             onClick={() => setActiveTab(item.id as ActiveTab)}
-            className={`bg-soc-card p-6 rounded-xl border ${item.color} cursor-pointer transition-all hover:-translate-y-1 shadow-lg group`}
+            className={`bg-soc-card p-6 rounded-xl border ${item.color} cursor-pointer transition-all hover:-translate-y-1 shadow-lg group flex flex-col justify-between`}
           >
-            <div className="flex justify-between items-start mb-3">
-              <span className="text-xs font-mono px-2 py-1 bg-soc-bg border border-soc-border rounded text-slate-300">
-                {item.badge}
-              </span>
-              <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-soc-cyan transition-colors" />
+            <div>
+              <div className="flex justify-between items-start mb-3">
+                <span className="text-xs font-mono px-2 py-1 bg-soc-bg border border-soc-border rounded text-slate-300">
+                  {item.badge}
+                </span>
+                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-soc-cyan transition-colors" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-soc-cyan transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-sm text-slate-400 mb-4">{item.desc}</p>
             </div>
-            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-soc-cyan transition-colors">{item.title}</h3>
-            <p className="text-sm text-slate-400">{item.desc}</p>
+
+            {/* High-visibility impact metric callout */}
+            <div className="bg-soc-bg border-l-2 border-soc-cyan p-2.5 rounded-r-md mt-2">
+              <div className="flex items-center space-x-1.5 text-[10px] font-mono text-soc-cyan uppercase tracking-wider mb-0.5">
+                <TrendingUp className="w-3 h-3" />
+                <span>Key Operational Impact</span>
+              </div>
+              <p className="text-xs font-mono font-medium text-slate-200">
+                {item.impactMetric}
+              </p>
+            </div>
           </div>
         ))}
       </div>

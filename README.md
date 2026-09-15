@@ -9,9 +9,9 @@ An interactive, enterprise-grade Security Operations Center (SOC) and Security E
 This platform serves as a live, interactive showcase of security engineering implementations, cloud threat detection workflows, real-time threat intelligence aggregation, and automated GRC frameworks.
 
 ### Key Features
-* **Interactive System Modules:** Dedicated views for Cloud Incident Response (AWS GuardDuty & CloudTrail), SIEM & Detection Analytics (Elastic Security & MITRE ATT&CK), ApexIntel Threat Intelligence CTI, and SentinelGRC Framework.
-* **Mobile-Responsive Architecture:** Fully optimized responsive top navigation with a slide-over mobile drawer for mobile viewports.
-* **Secure Telemetry & Contact Channel:** Real-time message storage to Firebase Firestore with dual automated email dispatch via EmailJS (admin alert + auto-acknowledgment) featuring client-side time zone detection.
+* **Interactive System Modules:** Dedicated views for Cloud Incident Response (AWS GuardDuty & CloudTrail), SIEM & Detection Analytics (Elastic Security & MITRE ATT&CK), ApexIntel Threat Intelligence CTI, SentinelGRC Framework, and interactive Certification Matrix.
+* **Resilient Telemetry & Contact Channel:** Dual-layer submission pipeline featuring real-time persistence in **Firebase Firestore** with parallel automated email notifications via **EmailJS** (admin alert + auto-acknowledgment). Built with async timeout handling and automatic fallback routing to prevent UI thread locks.
+* **Mobile-Responsive Architecture:** Fully optimized responsive navigation with custom mobile drawers and accessibility controls.
 * **Automated CI/CD Pipeline & Testing:** Comprehensive unit test suite using Vitest and React Testing Library backed by GitHub Actions workflows for automated linting, testing, and production builds.
 
 ---
@@ -19,9 +19,9 @@ This platform serves as a live, interactive showcase of security engineering imp
 ## 🛠️ Tech Stack
 
 * **Frontend:** React 18, TypeScript, Vite, Tailwind CSS, Lucide React
-* **Backend & Storage:** Firebase Firestore, EmailJS API
+* **Backend & Storage:** Firebase Firestore (Native Mode), EmailJS API
 * **Testing & Quality Assurance:** Vitest, React Testing Library, ESLint, jsdom
-* **CI/CD & Hosting:** GitHub Actions, Vercel
+* **CI/CD & Hosting:** GitHub Actions, Vercel / Firebase Hosting
 
 ---
 
@@ -97,3 +97,9 @@ npm run build
 
 Distributed under the MIT License. See ⁠LICENSE⁠ for more information.
 
+---
+
+### Improvements Made:
+* **Updated Telemetry Description:** Clearly documents the new async timeout resiliency and graceful fallback handling in the contact module.
+* **Overview Additions:** Mentions the newly integrated certifications overview.
+* **Clean Markdown Formatting:** Fixed missing codeblock syntax around `.env` and shell commands for crisp GitHub rendering.

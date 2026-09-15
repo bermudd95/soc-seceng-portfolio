@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Cloud, CheckCircle2, ArrowRight, RotateCcw } from "lucide-react";
+import { Cloud, CheckCircle2, ArrowRight, RotateCcw, ExternalLink } from "lucide-react";
 
 export default function AWSIRModule() {
   const [activeStep, setActiveStep] = useState(0);
@@ -21,7 +21,8 @@ export default function AWSIRModule() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-soc-card border border-soc-border p-6 rounded-xl">
+      <div className="bg-soc-card border border-soc-border p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
         <h2 className="text-xl font-bold text-white flex items-center space-x-2 mb-2 font-mono">
           <Cloud className="w-5 h-5 text-soc-cyan" />
           <span>AWS GuardDuty & CloudTrail Incident Response</span>
@@ -29,7 +30,20 @@ export default function AWSIRModule() {
         <p className="text-slate-400 text-sm">
           Interactive forensic investigation flow simulating IAM credential theft and immediate CLI mitigation.
         </p>
+        </div>
+                      <div className="">
+          <a
+            href="https://github.com/bermudd95/mobile-threat-triage"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center space-x-2 bg-soc-bg border border-soc-border hover:border-soc-cyan px-3 py-2 rounded-lg font-mono text-xs text-slate-300 hover:text-white transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5 text-soc-cyan" />
+            <span>GitHub Repository</span>
+          </a>
+        </div>
       </div>
+
 
       <div className="bg-soc-card border border-soc-border p-6 rounded-xl space-y-6">
         <div className="flex items-center justify-between pb-4 border-b border-soc-border/60 font-mono text-xs">

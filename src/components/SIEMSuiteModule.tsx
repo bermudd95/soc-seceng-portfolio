@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Terminal, Search, Filter, AlertTriangle } from "lucide-react";
+import { Terminal, Search, Filter, AlertTriangle, ExternalLink } from "lucide-react";
 
 interface LogEntry {
   id: string;
@@ -53,14 +53,27 @@ export default function SIEMSuiteModule() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-soc-card border border-soc-border p-6 rounded-xl">
-        <h2 className="text-xl font-bold text-white flex items-center space-x-2 mb-2 font-mono">
+      <div className="bg-soc-card border border-soc-border p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <h2 className="text-xl font-bold text-white flex items-center space-x-2 mb-2 font-mono">
           <Terminal className="w-5 h-5 text-soc-emerald" />
           <span>SOC Threat Detection & SIEM Analytics Suite</span>
         </h2>
         <p className="text-slate-400 text-sm">
           Multi-stage attack detection correlated across Windows Sysmon, Security EVTX, and Linux auditd telemetry.
         </p>
+        </div>
+                <div>
+          <a
+            href="https://github.com/bermudd95/mobile-threat-triage"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center space-x-2 bg-soc-bg border border-soc-border hover:border-soc-cyan px-3 py-2 rounded-lg font-mono text-xs text-slate-300 hover:text-white transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5 text-soc-cyan" />
+            <span>GitHub Repository</span>
+          </a>
+        </div>
       </div>
 
       {/* Control Panel */}

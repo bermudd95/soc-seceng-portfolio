@@ -95,6 +95,17 @@ export default function ApexIntelModule() {
             Real-time Threat Intelligence aggregation ingesting CISA Known Exploited Vulnerabilities (KEV), FIRST EPSS probability scores, and IOC telemetry feeds.
           </p>
         </div>
+                <div className="flex items-center space-x-3">
+                  <a
+                    href="https://github.com/bermudd95/mobile-threat-triage"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center space-x-2 bg-soc-bg border border-soc-border hover:border-soc-cyan px-3 py-2 rounded-lg font-mono text-xs text-slate-300 hover:text-white transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-soc-cyan" />
+                    <span>GitHub Repository</span>
+                  </a>
+                </div>
         <div className="flex items-center space-x-2 bg-soc-bg border border-soc-border px-3 py-2 rounded-lg font-mono text-xs">
           <Globe className="w-4 h-4 text-soc-amber" />
           <span className="text-slate-300">Feed Status:</span>

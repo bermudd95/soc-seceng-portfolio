@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileCheck, Shield, Lock, Layers, Code2, CheckCircle2 } from 'lucide-react';
+import { FileCheck, Shield, Lock, Layers, Code2, CheckCircle2, ExternalLink } from 'lucide-react';
 
 interface NISTControl {
   id: string;
@@ -57,7 +57,19 @@ export default function SentinelGRCModule() {
           <p className="text-sm text-slate-400 mt-1 max-w-2xl">
             Multi-tenant governance platform mapping real-time application security policies and Firestore access controls to NIST CSF 2.0 and SP 800-53 frameworks.
           </p>
+              
+        </div><div className="flex items-center space-x-3">
+          <a
+            href="https://github.com/bermudd95/mobile-threat-triage"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center space-x-2 bg-soc-bg border border-soc-border hover:border-soc-cyan px-3 py-2 rounded-lg font-mono text-xs text-slate-300 hover:text-white transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5 text-soc-cyan" />
+            <span>GitHub Repository</span>
+          </a>
         </div>
+            
         <div className="flex items-center space-x-2 bg-soc-bg border border-soc-border px-3 py-2 rounded-lg font-mono text-xs">
           <Lock className="w-4 h-4 text-purple-400" />
           <span className="text-slate-300">Policy Mode:</span>

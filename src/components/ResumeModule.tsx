@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 export default function ResumeModule() {
-  const resumeUrl = "/Danny_Bermudez_Resume.pdf";
+  const resumeUrl = "/Danny_Bermudez_Resume_Revised.docx";
 const handleViewRaw = (e: React.MouseEvent) => {
   e.preventDefault();
   // Opens the PDF asset directly in a dedicated inline preview window

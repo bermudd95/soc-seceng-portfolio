@@ -2,19 +2,10 @@ import React from "react";
 import {
   FileText,
   Download,
-  ExternalLink,
 } from "lucide-react";
 
 export default function ResumeModule() {
   const resumeUrl = "/Danny_Bermudez_Resume_Revised.docx";
-
-  const handleViewRaw = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const docxWindow = window.open(resumeUrl, "_blank");
-    if (docxWindow) {
-      docxWindow.focus();
-    }
-  };
 
   return (
     <div className="space-y-6 text-slate-200">
@@ -31,16 +22,6 @@ export default function ResumeModule() {
         </div>
 
         <div className="flex items-center gap-3 font-mono text-xs">
-          <a
-            href={resumeUrl}
-            onClick={handleViewRaw}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 px-4 py-2.5 bg-black/50 hover:bg-slate-800 border border-soc-border text-slate-300 rounded-lg transition"
-          >
-            <ExternalLink className="w-4 h-4 text-soc-cyan" />
-            <span>View Raw File</span>
-          </a>
           <a
             href={resumeUrl}
             download

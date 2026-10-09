@@ -368,7 +368,7 @@ function OverviewModule({
                   Purdue University Global
                 </span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full border text-soc-cyan border-soc-cyan/30 bg-soc-cyan/10 font-semibold">
-                  3.96 GPA
+                  3.98 GPA
                 </span>
               </div>
               <h3 className="text-sm font-semibold text-white mb-1">
@@ -385,68 +385,68 @@ function OverviewModule({
       {/* Interactive Project Modules Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         {[
-          {
-            id: "about",
-            title: "Operator Profile & Background",
-            desc: "Learn about my transition from physical asset protection to SOC operations, threat hunting, and detection-as-code engineering.",
-            impactMetric: "Transitioned real-world asset security to digital SecOps & threat hunting.",
-            badge: "About",
-            color: "border-soc-cyan/40 hover:border-soc-cyan",
-          },
-          {
-            id: "resume",
-            title: "Curriculum Vitae",
-            desc: "View and download my verified resume detailing SOC metrics, certifications, and technical proficiencies.",
-            impactMetric: "66% faster triage, 35% FP reduction, 70% CTI time reduction.",
-            badge: "Resume",
-            color: "border-soc-emerald/40 hover:border-soc-emerald",
-          },
-          {
-            id: "mobile-triage",
-            title: "Mobile Threat Triage Engine",
-            desc: "Zero-dependency iOS network hunting engine running inside iSH (Alpine Linux). Parses .HAR captures to isolate plaintext transport and high-risk indicators.",
-            impactMetric: "480+ flows, 300+ domains; identified 12 suspicious TLDs and 3 C2 patterns.",
-            badge: "Mobile IR & Traffic Analysis",
-            color: "border-soc-cyan/40 hover:border-soc-cyan",
-          },
-          {
-            id: "aws-ir",
-            title: "AWS GuardDuty & CloudTrail Incident Response",
-            desc: "Pivoted from GuardDuty alerts to raw CloudTrail JSON logs to reconstruct attacker persistence, privilege escalation, and CLI containment.",
-            impactMetric: "Reduced credential revocation time from 20 minutes to under 30 seconds.",
-            badge: "Cloud IR",
-            color: "border-soc-cyan/40 hover:border-soc-cyan",
-          },
-          {
-            id: "siem-suite",
-            title: "SOC Threat Detection & SIEM Analytics Suite",
-            desc: "Multi-stage attack detection in Elastic Security using Sysmon, EVTX, and Linux logs mapped to MITRE ATT&CK.",
-            impactMetric: "30+ detection rules engineered; 95% coverage across 12 MITRE ATT&CK tactics.",
-            badge: "SIEM & Detection",
-            color: "border-soc-emerald/40 hover:border-soc-emerald",
-          },
-          {
-            id: "apex-intel",
-            title: "ApexIntel CTI Threat Engine",
-            desc: "Real-time threat aggregator ingesting CISA KEV, EPSS exploit scoring, and VirusTotal IOC reputation feeds.",
-            impactMetric: "Normalized 10,000+ daily IoCs; ~70% analyst enrichment time reduction.",
-            badge: "Threat Intel",
-            color: "border-soc-amber/40 hover:border-soc-amber",
-          },
-          {
-            id: "sentinel-grc",
-            title: "SentinelGRC Security Platform",
-            desc: "Multi-tenant GRC platform automating NIST CSF 2.0 and SP 800-53 control mappings with Firestore security rules.",
-            impactMetric: "150+ NIST SP 800-53 control mappings; ~60% compliance overhead reduction.",
-            badge: "GRC & AppSec",
-            color: "border-purple-500/40 hover:border-purple-500",
-          },
+{
+    id: "about",
+    title: "Operator Profile & Background",
+    desc: "Learn about my transition from U.S. Navy systems maintenance and asset protection to SOC operations, threat hunting, and detection engineering.",
+    impactMetric: "7+ years across security ops, software engineering, and military hardware maintenance.",
+    badge: "About",
+    color: "border-soc-cyan/40 hover:border-soc-cyan",
+  },
+  {
+    id: "resume",
+    title: "Curriculum Vitae",
+    desc: "View and download my verified resume detailing 100% SLA compliance, sub-5 min MTTD benchmarks, certifications, and technical proficiencies.",
+    impactMetric: "Sub-5 min MTTD, Sub-15 min MTTR, 100% SLA compliance across 150+ facilities.",
+    badge: "Resume",
+    color: "border-soc-emerald/40 hover:border-soc-emerald",
+  },
+  {
+    id: "mobile-triage",
+    title: "Mobile Threat Triage Engine",
+    desc: "On-device iOS mobile threat hunting tool running inside iSH (Alpine Linux). Parses HAR captures to detect cleartext HTTP, Basic Auth exposures, and malicious TLD patterns.",
+    impactMetric: "Zero-dependency Layer-7 traffic analysis and automated Markdown report generation without jailbreaking.",
+    badge: "Mobile IR & Traffic Analysis",
+    color: "border-soc-cyan/40 hover:border-soc-cyan",
+  },
+  {
+    id: "aws-ir",
+    title: "AWS CloudTrail & GuardDuty Incident Lab",
+    desc: "Investigated simulated IAM credential compromises by correlating GuardDuty findings with CloudTrail logs to reconstruct attacker timelines and execute containment.",
+    impactMetric: "Formal SOC incident report covering hypothesis, IOCs, impact, and IAM credential rotation remediation.",
+    badge: "Cloud IR",
+    color: "border-soc-cyan/40 hover:border-soc-cyan",
+  },
+  {
+    id: "siem-suite",
+    title: "SOC Threat Detection & SIEM Suite",
+    desc: "9-lab SOC analyst portfolio featuring SSH brute-force detection, phishing investigations, EDR/Sysmon telemetry analysis, and multi-stage attack simulations.",
+    impactMetric: "Custom KQL/EQL detection queries mapped to MITRE ATT&CK (T1595, T1110, T1059.004, T1078).",
+    badge: "SIEM & Detection",
+    color: "border-soc-emerald/40 hover:border-soc-emerald",
+  },
+  {
+    id: "apex-intel",
+    title: "ApexIntel CTI Threat Engine",
+    desc: "Live CTI aggregator ingesting CISA KEV and FIRST EPSS feeds into unified JSON objects with API outage fallback handling and automated KQL/Sigma rule compilation.",
+    impactMetric: "Automated risk threshold evaluation (CISA KEV presence, EPSS > 0.80) to auto-generate KQL and Sigma detection rules.",
+    badge: "Threat Intel",
+    color: "border-soc-amber/40 hover:border-soc-amber",
+  },
+  {
+    id: "sentinel-grc",
+    title: "SentinelGRC Security Platform",
+    desc: "Multi-tenant GRC platform featuring JWT-claim tenant isolation, a 5x5 quantitative risk engine, and automated NIST CSF 2.0, ISO 27001, and SOC 2 control mappings.",
+    impactMetric: "Append-only audit logging and CI/CD pipelines running Firebase security rules and SAST scanning.",
+    badge: "GRC & AppSec",
+    color: "border-purple-500/40 hover:border-purple-500",
+  },
           {
             id: "contact",
-            title: "Secure Communication Channel",
-            desc: "Direct contact form with end-to-end telemetry logging to Firestore and serverless email alerting.",
-            impactMetric: "Serverless, encrypted, Firestore-backed pipeline with async fallbacks.",
-            badge: "Contact",
+            title: "Get in Touch",
+            desc: "Send a direct message for job opportunities, technical inquiries, or security project collaborations.",
+            impactMetric: "Direct contact form powered by a serverless email pipeline and encrypted log storage.",
+            badge: "Contact Me",
             color: "border-soc-cyan/40 hover:border-soc-cyan",
           },
         ].map((item) => (

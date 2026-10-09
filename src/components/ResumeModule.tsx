@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 
 export default function ResumeModule() {
-  const resumeUrl = "/Danny_Bermudez_Resume_Revised.docx";
+  const resumeUrl = "/Danny_Bermudez_Resume_Revised (6).pdf";
 
   return (
     <div className="space-y-6 text-slate-200">
@@ -40,12 +40,6 @@ export default function ResumeModule() {
           <h2 className="text-xl font-bold text-white">Danny Bermudez</h2>
           <p className="text-soc-cyan font-mono text-xs mt-1">
             Mountlake Terrace, WA | (747) 228-4581 | bermudd95@icloud.com
-          </p>
-          <p className="text-xs font-mono text-slate-400 mt-1">
-            Portfolio: https://soc-secengportfolio.vercel.app | LinkedIn: linkedin.com/in/danny-bermudez-81b704190 | GitHub: github.com/bermudd95
-          </p>
-          <p className="text-sm text-slate-300 mt-4 leading-relaxed">
-            Cybersecurity engineer with 7+ years of combined security operations and software engineering experience, specializing in detection engineering, incident response, and security automation, built on a foundation from U.S. Navy service in systems maintenance. Builds deployed threat intelligence platforms, mobile threat hunting tools, and detection-as-code pipelines. Background in Python, React, and Node.js means I build the tooling analysts need, not just triage alerts.
           </p>
         </section>
 
@@ -174,8 +168,7 @@ export default function ResumeModule() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div className="bg-black/40 p-3 rounded border border-soc-border/60">
-              <div className="font-bold text-white">CompTIA Security+ ce</div>
-              <p className="text-slate-400 font-mono text-[11px] mt-0.5">ID: COMP001023116540</p>
+              <p className="font-bold text-white">CompTIA Security+ CE</p>
             </div>
             <div className="bg-black/40 p-3 rounded border border-soc-border/60">
               <div className="font-bold text-white">B.S. Cybersecurity — Purdue University Global</div>

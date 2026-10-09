@@ -35,7 +35,7 @@ export default function AboutModule() {
           <div className="flex flex-wrap gap-2 font-mono text-xs">
             <span className="px-3 py-1.5 bg-black/50 border border-soc-border rounded-lg text-soc-emerald font-semibold flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5 text-soc-emerald" />
-              CompTIA Security+ ce
+              CompTIA Security+ CE
             </span>
             <span className="px-3 py-1.5 bg-black/50 border border-soc-border rounded-lg text-slate-300">
               B.S. Cybersecurity (3.98 GPA)

@@ -201,7 +201,7 @@ function OverviewModule({
 }: {
   setActiveTab: (tab: ActiveTab) => void;
 }) {
-  const resumeUrl = "/Danny_Bermudez_Resume.pdf";
+  const resumeUrl = "/Danny_Bermudez_Resume_Revised (6).pdf";
 
   return (
     <div className="space-y-6">
